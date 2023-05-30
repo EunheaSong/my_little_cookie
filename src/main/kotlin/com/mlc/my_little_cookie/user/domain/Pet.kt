@@ -1,8 +1,7 @@
-package com.mlc.my_little_cookie
+package com.mlc.my_little_cookie.user.domain
 
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
-import java.time.LocalDateTime
+import com.mlc.my_little_cookie.common.BaseEntity
+import jakarta.persistence.*
 
 @Entity
 class Pet(
@@ -13,9 +12,9 @@ class Pet(
         val type: Type,
         val image: String,
         val isRainbowBridge: Boolean,
-) {
-    val createdAt: LocalDateTime = LocalDateTime.now()
-    val updatedAt: LocalDateTime = LocalDateTime.now()
+        @ManyToOne(fetch = FetchType.LAZY)
+        val user: User,
+): BaseEntity() {
 
     enum class Type(val value: String){
         CAT("고양이"),
