@@ -5,13 +5,16 @@ import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
 import jakarta.persistence.Id
 import jakarta.persistence.OneToMany
-import javax.management.monitor.StringMonitor
+import java.time.LocalDate
 
 @Entity
 class User(
         @Id
         val id: String,
         val name: String,
+        val mobileNo: String,
+        val birthDay: LocalDate,
+        val nickname: String,
         val email: String,
         val password: String,
         val image: String,
